@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: deep-observer
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npx tsx server/index.ts
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_TYPE
+        value: d1
+      - key: PORT
+        value: 10000
+      - key: DEEPSEEK_API_KEY
+        sync: false
+      - key: DEEPSEEK_MODEL
+        value: qwen-plus
+      - key: DEEPSEEK_BASE_URL
+        value: https://dashscope.aliyuncs.com/compatible-mode
+      - key: CLOUDFLARE_ACCOUNT_ID
+        sync: false
+      - key: CLOUDFLARE_DATABASE_ID
+        sync: false
+      - key: CLOUDFLARE_D1_TOKEN
+        sync: false
